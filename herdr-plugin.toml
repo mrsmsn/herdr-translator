@@ -1,0 +1,20 @@
+id = "mrsmsn.translator"
+name = "herdr-translator"
+version = "0.1.0"
+min_herdr_version = "0.7.5"
+description = "Translate selection/clipboard via translate-shell and show in a popup"
+platforms = ["macos", "linux"]
+
+[[actions]]
+id = "translate"
+title = "Translate"
+contexts = ["pane"]
+command = ["./translate.sh"]
+
+[[panes]]
+id = "popup"
+title = "Translation"
+placement = "popup"
+width = "70%"
+height = "60%"
+command = ["./render.sh"]
