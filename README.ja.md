@@ -38,8 +38,10 @@ description = "translate selection/clipboard"
 ## 使い方
 
 ペインでテキストを選択 (またはコピー) して `prefix+t`。選択テキストを優先し、
-無ければ OS クリップボードにフォールバックするので、コピーモードの
-「選択 → `y` → `prefix+t`」の流れでも使える。
+無ければ OS クリップボードにフォールバックする。アクションが `selection`
+context を宣言しているため、コピーモード中の選択に対して yank せずそのまま
+バインドを押せば `selected_text` として渡る。yank してからの
+「選択 → `y` → `prefix+t`」もクリップボード経由で使える。
 
 検出した原文の言語が翻訳先と同じ場合は、翻訳方向を `TARGET_LANG_ALT` に
 反転する (例: en→ja の設定なら ja のテキストは ja→en になる)。

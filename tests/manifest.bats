@@ -26,6 +26,12 @@ teardown() {
   [ "$count" -eq 2 ]
 }
 
+@test "translate action is available in pane and selection contexts" {
+  # "selection" lets the action fire on a live copy-mode selection (no yank),
+  # passing it to the plugin as selected_text.
+  grep -q '^contexts = \["pane", "selection"\]$' "$MANIFEST"
+}
+
 @test "plugin id matches the pane-open call in translate.sh" {
   grep -q '^id = "mrsmsn.translator"$' "$MANIFEST"
   grep -q -- '--plugin mrsmsn.translator' "$PROJECT_ROOT/translate.sh"

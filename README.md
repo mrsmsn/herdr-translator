@@ -38,8 +38,11 @@ Reload with `herdr server reload-config` (or restart herdr).
 ## Usage
 
 Select text in a pane (or copy it), then press `prefix+t`. The plugin looks for
-the pane selection first and falls back to the OS clipboard, so the usual
-"select → `y` → `prefix+t`" copy-mode flow works too.
+the pane selection first and falls back to the OS clipboard. In copy mode you
+can press the binding directly on a live selection — no yank needed — because
+the action declares the `selection` context and receives the selection as
+`selected_text`. The yank-based "select → `y` → `prefix+t`" flow also works
+through the clipboard fallback.
 
 When the detected source language equals the target language, the translation
 direction is reversed to `target_lang_alt` (e.g. ja→en instead of en→ja).
