@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Test stub for herdr: records every invocation in $STUB_HERDR_LOG.
+if [ -n "${STUB_HERDR_LOG:-}" ]; then
+  printf '%s\n' "$*" >> "$STUB_HERDR_LOG"
+fi

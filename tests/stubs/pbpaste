@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Test stub for pbpaste: prints $STUB_PBPASTE_OUT. Being first in the
+# clipboard fallback chain, it shadows any real clipboard tool on the host.
+printf '%s' "${STUB_PBPASTE_OUT:-}"

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Test stub for less: prints the files instead of paging, so tests can assert
+# on stdout even with the default PAGER_CMD ("less -R").
+files=()
+for a in "$@"; do
+  case "$a" in
+    -*) : ;;
+    *) files+=("$a") ;;
+  esac
+done
+cat -- "${files[@]}"
