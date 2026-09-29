@@ -46,6 +46,14 @@ context を宣言しているため、コピーモード中の選択に対して
 検出した原文の言語が翻訳先と同じ場合は、翻訳方向を `TARGET_LANG_ALT` に
 反転する (例: en→ja の設定なら ja のテキストは ja→en になる)。
 
+### ポップアップの表示
+
+結果は herdr 自身のオーバーレイ (`prefix+?` のキーバインド一覧) と同じ流儀で
+描画する。翻訳方向を示す dim な subtitle、アクセント色の `source` /
+`translation` セクション、右端のスクロールバー、キーヒントの footer。
+スクロールは `j`/`k`・矢印キー・`PageUp`/`PageDown`、終了は `esc` / `q` /
+`Enter`。
+
 ## 設定
 
 herdr のプラグイン設定ディレクトリに置いた shell 設定ファイルを読む (任意)。
@@ -65,7 +73,13 @@ SOURCE_LANG="auto"        # 原文の言語 (auto = 自動検出)
 TARGET_LANG="ja"          # 翻訳先
 TARGET_LANG_ALT="en"      # 原文が TARGET_LANG と同じときの翻訳先
 USE_CACHE="on"            # ~/.cache/herdr-translate に結果をキャッシュ
-PAGER_CMD="less -R"       # 結果表示に使う pager
+VIEWER="builtin"          # builtin = herdr 風ビュー, pager = $PAGER_CMD
+PAGER_CMD="less -R"       # VIEWER="pager" のときに使う pager
+VIEW_ACCENT="7fc8ff"      # セクション見出し (既定値は herdr の tokyo-night 相当)
+VIEW_TEXT="c0caf5"        # 本文
+VIEW_DIM="565f89"         # subtitle / footer / スクロールバーの軌道
+VIEW_THUMB="697196"       # スクロールバーのつまみ
+VIEW_ERROR="f7768e"       # エラー見出し
 ```
 
 このファイルは実行のたびに source されるので、変更は即座に反映される

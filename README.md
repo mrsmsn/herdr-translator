@@ -47,6 +47,14 @@ through the clipboard fallback.
 When the detected source language equals the target language, the translation
 direction is reversed to `target_lang_alt` (e.g. ja→en instead of en→ja).
 
+### The popup view
+
+The popup draws the result in herdr's own overlay style (the one `prefix+?`
+uses): a dimmed subtitle with the translation direction, accent-coloured
+`source` and `translation` sections, a scrollbar in the right gutter, and a
+key-hint footer. Scroll with `j`/`k`, the arrow keys or `PageUp`/`PageDown`;
+close with `esc`, `q` or `Enter`.
+
 ## Configuration
 
 The plugin reads an optional shell config file from its herdr config
@@ -66,7 +74,13 @@ SOURCE_LANG="auto"        # source language (auto = detect)
 TARGET_LANG="ja"          # translation target
 TARGET_LANG_ALT="en"      # target when the source already is TARGET_LANG
 USE_CACHE="on"            # cache results under ~/.cache/herdr-translate
-PAGER_CMD="less -R"       # pager used to display the result
+VIEWER="builtin"          # builtin = herdr-style view, pager = $PAGER_CMD
+PAGER_CMD="less -R"       # pager used when VIEWER="pager"
+VIEW_ACCENT="7fc8ff"      # section headers (defaults match herdr's tokyo-night)
+VIEW_TEXT="c0caf5"        # body text
+VIEW_DIM="565f89"         # subtitle, footer labels, scrollbar track
+VIEW_THUMB="697196"       # scrollbar thumb
+VIEW_ERROR="f7768e"       # error heading
 ```
 
 The file is sourced on every invocation, so changes take effect immediately —

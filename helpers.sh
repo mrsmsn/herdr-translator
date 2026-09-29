@@ -39,25 +39,3 @@ cache_set() {
   mkdir -p -- "$dir"
   cat > "$dir/$1"
 }
-
-# format_result <src-text> <translated> <source-lang> <target-lang>
-# Emits an ANSI-coloured "original / translation" view for the pager.
-format_result() {
-  local src="$1" dst="$2" slang="$3" tlang="$4"
-  local cyan green reset
-  cyan=$'\033[1;36m'; green=$'\033[1;32m'; reset=$'\033[0m'
-  printf '%s── Source (%s) ──%s\n' "$cyan" "$slang" "$reset"
-  printf '%s\n\n' "$src"
-  printf '%s── Translation (%s) ──%s\n' "$green" "$tlang" "$reset"
-  printf '%s\n' "$dst"
-}
-
-# format_error <message>
-format_error() {
-  local red bold reset
-  red=$'\033[1;31m'; bold=$'\033[1m'; reset=$'\033[0m'
-  printf '%s── Translation error ──%s\n\n' "$red" "$reset"
-  printf '%s\n\n' "$1"
-  printf '%sHint:%s check the backends (translate-shell / curl / jq) and your\n' "$bold" "$reset"
-  printf '      network connection.\n'
-}

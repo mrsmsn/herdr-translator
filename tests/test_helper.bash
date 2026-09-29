@@ -47,3 +47,9 @@ run_render() {
   seed_src "$1"
   run bash "$PROJECT_ROOT/render.sh"
 }
+
+# strip_ansi -> removes SGR escape sequences from stdin, so view tests can
+# assert on plain text.
+strip_ansi() {
+  sed -E $'s/\033\\[[0-9;]*m//g'
+}

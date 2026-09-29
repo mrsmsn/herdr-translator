@@ -33,19 +33,3 @@ teardown() {
   run cache_get does-not-exist
   [ "$status" -ne 0 ]
 }
-
-@test "format_result includes both languages" {
-  run format_result "hello" "やあ" en ja
-  [ "$status" -eq 0 ]
-  [[ "$output" == *"Source (en)"* ]]
-  [[ "$output" == *"Translation (ja)"* ]]
-  [[ "$output" == *"やあ"* ]]
-}
-
-@test "format_error includes the message and a hint" {
-  run format_error "boom"
-  [ "$status" -eq 0 ]
-  [[ "$output" == *"Translation error"* ]]
-  [[ "$output" == *"boom"* ]]
-  [[ "$output" == *"Hint:"* ]]
-}

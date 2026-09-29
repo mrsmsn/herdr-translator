@@ -18,7 +18,7 @@ check: build
 
 # Static analysis only.
 lint: build
-    {{run}} shellcheck translate.sh render.sh helpers.sh engines/*.sh tests/stubs/herdr tests/stubs/trans tests/stubs/curl tests/stubs/pbpaste tests/stubs/less ci/run-checks.sh
+    {{run}} shellcheck translate.sh render.sh helpers.sh view.sh engines/*.sh tests/stubs/herdr tests/stubs/trans tests/stubs/curl tests/stubs/pbpaste tests/stubs/less ci/run-checks.sh
 
 # Tests only.
 test: build

@@ -1,6 +1,6 @@
 id = "mrsmsn.translator"
 name = "herdr-translator"
-version = "0.2.0"
+version = "0.3.0"
 min_herdr_version = "0.7.5"
 description = "Translate selection/clipboard via translate-shell and show in a popup"
 platforms = ["macos", "linux"]

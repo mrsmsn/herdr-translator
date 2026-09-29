@@ -10,6 +10,7 @@ shellcheck \
   translate.sh \
   render.sh \
   helpers.sh \
+  view.sh \
   engines/*.sh \
   tests/stubs/herdr tests/stubs/trans tests/stubs/curl \
   tests/stubs/pbpaste tests/stubs/less \
